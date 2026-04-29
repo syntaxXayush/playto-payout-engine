@@ -74,6 +74,9 @@ DATABASES = {
     }
 }
 
+if 'neon.tech' in config('DB_HOST', default=''):
+    DATABASES['default']['OPTIONS'] = {'sslmode': 'require'}
+
 AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
     {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
